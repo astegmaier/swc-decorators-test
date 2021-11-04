@@ -2,7 +2,14 @@ import { FASTElement, customElement, attr } from "https://unpkg.com/@microsoft/f
 
 @customElement("name-tag")
 export class NameTag extends FASTElement {
-  @attr greeting = "Hello";
+  // When we assign the default value of greeting through property assignment, the swc version breaks.
+  @attr greeting = "Hello"
+
+  // When we assign the default value of "greeting" through the constructor, the swc version works.
+  // constructor() {
+  //   super();
+  //   this.greeting = "Hello";
+  // }
 
   greetingChanged() {
     console.log("greetingChanged called!", this.greeting);
