@@ -1,14 +1,9 @@
 {
-    "jsc": {
-      "parser": {
-        "syntax": "typescript",
-        "tsx": false,
-        "dynamicImport": false,
-        "decorators": true
-      },
-      "target": "es2016",
-      "loose": false,
-      "externalHelpers": false,
-      "keepClassNames": false
-    }
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true
+    },
+    "target": "es2016"
   }
+}

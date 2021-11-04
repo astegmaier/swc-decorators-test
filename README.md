@@ -24,7 +24,7 @@ Here is a comparison of the relevant parts of the source code and `tsc`/`swc` tr
 
 **Source Code:**
 ```ts
-export const testDecorator = <T extends {}>(target: T, key: keyof T) => {
+const testDecorator = <T extends {}>(target: T, key: keyof T) => {
     const privateField = Symbol();
     // We define getters and setters for the property on the prototype of the class
     // A real application might use this to intercept changes to the decorated property..
