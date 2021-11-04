@@ -1,5 +1,19 @@
-export const testDecorator = <T>(target: T, key: keyof T) => {
-    console.log("called testDecorator with target", target, "and key", key);
+export const testDecorator = <T extends {}>(target: T, key: keyof T) => {
+    const privateField = Symbol();
+    // We define getters and setters for the property on the prototype of the class
+    // A real application might use this to intercept changes to the field.
+    Reflect.defineProperty(target, key, {
+        get: function () {
+            console.log(`called getter for property ${key}.`)
+            return (target as any)[privateField]
+        },
+        set: function (newValue) {
+            console.log(`called setter for property ${key} with newValue ${newValue}.`)
+            return (target as any)[privateField] = newValue
+        }
+    })
+    // The decorator successfully executes with both the "tsc" and "swc" versions of the transpiled code.
+    console.log("called testDecorator!");
   };
 
 class TestClass {
@@ -8,4 +22,21 @@ class TestClass {
 }
 
 const instance = new TestClass();
-console.log(instance.testProp);
+// SWC console output:
+//    "called testDecorator!"
+// TSC console output:
+//    "called testDecorator!"
+//    "called setter for property testProp with newValue hello"
+
+instance.testProp = "goodbye";
+// SWC console output:
+//    <nothing>
+// TSC console output:
+//    "called setter for property testProp with newValue goodbye."
+
+console.log("testProp is now", instance.testProp);
+// SWC console output:
+//    "testProps is now goodbye"
+// TSC console output:
+//    "called getter for property testProp."
+//    "testProps is now goodbye"
