@@ -1,7 +1,7 @@
 export const testDecorator = <T extends {}>(target: T, key: keyof T) => {
     const privateField = Symbol();
     // We define getters and setters for the property on the prototype of the class
-    // A real application might use this to intercept changes to the field.
+    // A real application might use this to intercept changes to the decorated property..
     Reflect.defineProperty(target, key, {
         get: function () {
             console.log(`called getter for property ${key}.`)
@@ -12,7 +12,6 @@ export const testDecorator = <T extends {}>(target: T, key: keyof T) => {
             return (target as any)[privateField] = newValue
         }
     })
-    // The decorator successfully executes with both the "tsc" and "swc" versions of the transpiled code.
     console.log("called testDecorator!");
   };
 

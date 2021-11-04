@@ -1,4 +1,4 @@
-## SWC Decorators Test
+# SWC Decorators Test
 
 This repo contains a reproduction of an issues with the way SWC currently transpiles typescript decorators.
 
@@ -16,3 +16,7 @@ This repo contains a reproduction of an issues with the way SWC currently transp
 Typescript output works as expected - you are able to define a decorator that overrides a getter and setter for the decorated property to log to the console when the property is accessed or changed. You'll see `console.log` output indicating that these getters and setters are actually hit.
 
 SWC output does not work as expected. Neither the getter nor the setter defined in the decorator are hit.
+
+## Real-life examples
+
+You'll also find two other real-life examples that have the same root cause - one using the `@observer` decorator from `@microsoft/fast-elements` (see [docs](https://www.fast.design/docs/fast-element/observables-and-state)), and another using the `@customElement` and `@attr` decorators from the same package (see [docs](https://www.fast.design/docs/fast-element/defining-elements)).
