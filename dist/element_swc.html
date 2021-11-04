@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <meta http-equiv="cache-control" content="no-cache" />
     <title>SWC POC</title>
-    <script src="/js-tsc/index.js" type="module"></script>
+    <script src="/js-swc/element.js" type="module"></script>
   </head>
   <body>
     <noscript>You need JavaScript to run this App.</noscript>
-    <h1>Test TSC</h1>
+    <h1>Test SWC</h1>
     <p>
       Below is a custom element created with @microsoft/fast-element. It uses class and property decorators, and they
-      _does_ work correctly when the component definition is transpiled with tsc. The greeting property of the custom
-      element is set to "Hola" in the html, and this correctly overrides the default "Hello".
+      don't work correctly when the component definition is transpiled with swc. The greeting property of the custom
+      element is set to "Hola" in the html, but this is never seen by the component, which defaults to "Hello".
     </p>
     <name-tag greeting="Hola"></name-tag>
   </body>
