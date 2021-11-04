@@ -1,3 +1,4 @@
 node_modules
-dist/js
+dist/js-swc
+dist/js-tsc
 .DS_Store
