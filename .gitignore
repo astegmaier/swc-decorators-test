@@ -1,4 +1,5 @@
 node_modules
 dist/js-swc
 dist/js-tsc
+dist/js-babel
 .DS_Store

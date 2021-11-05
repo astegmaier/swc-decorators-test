@@ -5,13 +5,19 @@
   "author": "Andrew Stegmaier",
   "license": "ISC",
   "scripts": {
-    "build": "yarn build:swc && yarn build:tsc",
+    "build": "yarn build:swc && yarn build:tsc && build:babel",
     "build:swc": "swc src -d dist/js-swc",
     "build:tsc": "tsc",
+    "build:babel": "babel src --out-dir dist/js-babel --extensions \".ts\"",
     "serve": "http-server dist",
-    "clean": "rimraf dist/js-swc dist/js-tsc"
+    "clean": "rimraf dist/js-swc dist/js-tsc dist/js-babel"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
     "@microsoft/fast-element": "^1.6.2",
     "@swc/cli": "^0.1.51",
     "@swc/core": "^1.2.106",
