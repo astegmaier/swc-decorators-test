@@ -5,7 +5,7 @@
   "author": "Andrew Stegmaier",
   "license": "ISC",
   "scripts": {
-    "build": "yarn build:swc && yarn build:tsc && build:babel",
+    "build": "yarn build:swc && yarn build:tsc && yarn build:babel",
     "build:swc": "swc src -d dist/js-swc",
     "build:tsc": "tsc",
     "build:babel": "babel src --out-dir dist/js-babel --extensions \".ts\"",
