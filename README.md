@@ -1,6 +1,6 @@
 # SWC Decorators Test
 
-This repo contains a reproduction of an issues with the way SWC currently transpiles typescript decorators.
+This repo contains a reproduction of [an issue](https://github.com/swc-project/swc/issues/2655) with the way SWC currently transpiles typescript decorators.
 
 ## Simple Repro Steps
 
